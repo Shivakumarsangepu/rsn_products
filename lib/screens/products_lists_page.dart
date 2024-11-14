@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:rsn_products/screens/product_detail_page.dart';
 import '../common_widgets/core.dart';
+import '../common_widgets/shimmer.dart';
 import '../common_widgets/sort_dialog.dart';
 import '../providers/product_provider.dart';
 
@@ -189,14 +190,15 @@ class _ProductListScreenState extends State<ProductListScreen> {
               ),
             ),
             if (productProvider.isLoading)
-              Positioned.fill(
-                child: Container(
-                  color: Colors.white.withOpacity(0.6), // Adds a slight background overlay
-                  child: const Center(
-                    child: CircularProgressIndicator(color: Colors.black),
-                  ),
-                ),
-              ),
+              ShimmerGridProductList()
+            // Positioned.fill(
+            //     child: Container(
+            //       color: Colors.white.withOpacity(0.6), // Adds a slight background overlay
+            //       child: const Center(
+            //         child: CircularProgressIndicator(color: Colors.black),
+            //       ),
+            //     ),
+            //   ),
           ],
         ),
       ),
